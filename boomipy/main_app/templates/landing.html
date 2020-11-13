@@ -1,1 +1,15 @@
-this is landings
+{% block content %}
+
+<h1>{{ user.name }}'s playlist</h1>
+<hr>
+<div>
+    <ul>
+    {% for song in songs %}
+        <li>
+            {{ song.name }}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
