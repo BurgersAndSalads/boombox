@@ -23,3 +23,12 @@ def signup(request):
 
 def home(request):
     return render(request, 'base.html')
+
+def myplaylist(request):
+    return render(request, 'myplaylist.html')
+def details(request):
+    return render(request, 'details.html')
+def landing(request):
+    return render(request, 'landing.html')
+def login(request):
+    return render(request, 'login.html')
