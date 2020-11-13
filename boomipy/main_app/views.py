@@ -21,14 +21,19 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
 def home(request):
     return render(request, 'base.html')
 
 def myplaylist(request):
     return render(request, 'myplaylist.html')
+
 def details(request):
     return render(request, 'details.html')
+
+songlist = [ {'name':'first song'}, {'name':'second song'}, {'name':'third song'}]
 def landing(request):
-    return render(request, 'landing.html')
+    return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
+
 def login(request):
     return render(request, 'login.html')
