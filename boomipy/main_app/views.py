@@ -39,7 +39,9 @@ def home(request):
 # @login_required
 # WATCH OUT YIREN! i DELETED A DUPLICATE FUNCTION
 def myplaylist(request):
-    return render(request, 'myplaylist.html')
+    # playlist = Playlist.objects.filter(user=request.user)
+    playlist = Playlist.objects.all()
+    return render(request, '/playlist.html', {'playlist': playlist})
 
 def details(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
