@@ -46,7 +46,7 @@ def myplaylist(request):
 def details(request):
     return render(request, 'details.html')
 
-songlist = [ {'name':'first song'}, {'name':'second song'}, {'name':'third song'}]
+songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
 def landing(request):
     return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
 
