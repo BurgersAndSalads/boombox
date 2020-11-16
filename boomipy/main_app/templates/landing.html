@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ user.name }}'s playlist</h1>
-<hr>
-<div>
-    <ul>
-    {% for song in songs %}
-        <li>
-            {{ song.name }}
-        </li>
-    {% endfor %}
-    </ul>
+<div id="textstuff">
+    <h1>{{ user.name }}'s </h1>
+    <h3>LAST PLAYED SONGS</h3>
+    <div id="line">
+        <hr>
+    </div>
+    <div>
+        <ul>
+        {% for song in songs %}
+            <li>
+                {{ song.name }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 </div>
+
 
 {% endblock %}
