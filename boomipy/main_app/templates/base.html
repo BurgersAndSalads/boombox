@@ -13,20 +13,24 @@
   </head>
   <body>
      <div class="topnavbar">
-      <a href="#home" >BACK</a>
-      <a href="#news">HOME</a>
-      <a href="#contact">LOGOUT</a>
+      <a onclick="goBack()" >BACK</a>
+      <a href="/landing">HOME</a>
+      <a href="/logout">LOGOUT</a>
     </div>
     {% block content %}
     {% endblock %}
     <div class="bottomnavbar">
-      <a href="#news">TOP 50</a>
-      <a href="#contact">MY PLAYLISTS</a>
+      <a href="/top50">TOP 50</a>
+      <a href="/myplaylist">MY PLAYLISTS</a>
     </div>
     <div class="header">
     <hr>
     </div>
-    <script></script>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>
 
