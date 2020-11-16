@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .models import Playlist, Song
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
 
 def signup(request):
@@ -29,7 +30,7 @@ def myplaylist(request):
     return render(request, 'myplaylist.html')
 
 def details(request):
-    return render(request, 'details.html')
+    return render(request, 'details.html', {'playlist': Playlist, 'songs': Song})
 
 songlist = [ {'name':'first song'}, {'name':'second song'}, {'name':'third song'}]
 def landing(request):
