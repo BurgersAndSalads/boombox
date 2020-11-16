@@ -6,7 +6,8 @@ from . import views
 urlpatterns = [
   path('', views.home, name='home'),
   # user log in
-  path('login/', views.login, name='login'),
+  path('accounts/', include('django.contrib.auth.urls')),
+  path('accounts/signup', views.signup, name='signup'),
   #  landing page
   path('landing/', views.landing, name='landing'),
   # user playlists
