@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from django.views.generic import ListView
+
 # Create your views here.
 
 def signup(request):
@@ -23,6 +25,19 @@ def signup(request):
 
 def home(request):
     return render(request, 'base.html')
+
+
+# this class will be used when we have a functioning model 
+# class MyPlaylist(ListView):
+#     Playlist = Playlist.objects.filter(user=user)
+#     model = Playlist
+# will be used for when we have the login installed
+# @login_required
+
+def myplaylist(request):
+    # playlist = Playlist.objects.filter(user=request.user)
+    playlist = Playlist.objects.all()
+    return render(request, '/playlist.html', {'playlist': playlist})
 
 def myplaylist(request):
     return render(request, 'myplaylist.html')

@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 class Song(models.Model):
     artist = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
-    
-
 
 class Playlist(models.Model):
     name = models.CharField(max_length=200)
