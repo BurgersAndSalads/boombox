@@ -1,1 +1,15 @@
-this is details
+{% block content %}
+
+<h1>{{ playlist.name }}</h1>
+<hr>
+<div>
+    <ul>
+    {% for song in songs %}
+        <li>
+            {{ song.name }}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
