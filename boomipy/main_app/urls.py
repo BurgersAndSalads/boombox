@@ -13,5 +13,5 @@ urlpatterns = [
   # user playlists
   path('myplaylist/', views.myplaylist, name='myplaylist'),
   #  playlist details
-  path('details/', views.details, name='details'),
+  path('playlist/<int:playlist_id>', views.details, name='playlist_details'),
 ]
