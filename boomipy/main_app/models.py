@@ -16,3 +16,4 @@ class Playlist(models.Model):
     users = models.ForeignKey(User, on_delete=models.CASCADE)
     songs = models.ManyToManyField(Song)
 
+# making a change so git can detect change to merge to master
