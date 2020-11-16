@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block content %}
 
 <h1>{{ user.name }}'s playlist</h1>
@@ -7,6 +8,9 @@
     {% for song in songs %}
         <li>
             {{ song.name }}
+            {% if song.link %}
+                <a href="{{ song.link }}">Link</a>
+            {% endif %}
         </li>
     {% endfor %}
     </ul>

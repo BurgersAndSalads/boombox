@@ -15,4 +15,3 @@ class Playlist(models.Model):
     description = models.TextField()
     users = models.ForeignKey(User, on_delete=models.CASCADE)
     songs = models.ManyToManyField(Song)
-

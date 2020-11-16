@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Playlist, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 # Create your views here.
 
 def signup(request):
@@ -26,13 +27,26 @@ def signup(request):
 def home(request):
     return render(request, 'base.html')
 
+
+# this class will be used when we have a functioning model 
+# class MyPlaylist(ListView):
+#     Playlist = Playlist.objects.filter(user=user)
+#     model = Playlist
+# will be used for when we have the login installed
+# @login_required
+
+def myplaylist(request):
+    # playlist = Playlist.objects.filter(user=request.user)
+    playlist = Playlist.objects.all()
+    return render(request, '/playlist.html', {'playlist': playlist})
+
 def myplaylist(request):
     return render(request, 'myplaylist.html')
 
 def details(request):
     return render(request, 'details.html', {'playlist': Playlist, 'songs': Song})
 
-songlist = [ {'name':'first song'}, {'name':'second song'}, {'name':'third song'}]
+songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
 def landing(request):
     return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
 
