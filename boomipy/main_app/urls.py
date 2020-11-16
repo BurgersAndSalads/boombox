@@ -14,4 +14,3 @@ urlpatterns = [
   #  playlist details
   path('details/', views.details, name='details'),
 ]
-
