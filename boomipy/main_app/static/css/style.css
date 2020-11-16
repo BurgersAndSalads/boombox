@@ -74,5 +74,85 @@ h3 {
 #line {
   margin: 0 15px 0 0 ;
 }
+#welcome {
+ text-align: center;
+ margin-top: 70px;
+ font-size: 50px;
+}
+
+#login {
+  text-align: center;
+  margin: 10px;
+}
+#loginbtn{
+  font-size:13px;
+  background-color: rgba(0, 0 , 0, 0.8);
+  width: 100px;
+}
+#signup {
+  text-align: center;
+  
+}
+#signupbtn{
+  font-size:13px;
+  background-color: rgba(0, 0 , 0, 0.8);
+  width: 100px;
+}
+
+#loginpage {
+  margin:  100px 40px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  color: black;
+  height: 230px
+  
+}
+
+#loginpage h1{
+  margin: 0px;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+#loginpage form {
+  margin: 1px;
+  font-size: 1px;
+}
+#loginbutton {
+  float: right;
+  font-size: 14px;
+  height: 35px;
+}
+
+#signuppage {
+  margin:  100px 40px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  color: black;
+  height: 340px
+  
+}
+
+/* #signuppage h1{
+  margin: 0px;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+#signuppage form {
+  margin: 1px;
+  font-size: 1px;
+}
+#signupbutton {
+  float: right;
+  font-size: 14px;
+  height: 35px;
+}
+
+#signuppage p{
+  margin: 8px 0px;
+} */
 
 }
