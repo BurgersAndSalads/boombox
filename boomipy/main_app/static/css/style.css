@@ -29,7 +29,7 @@ h3 {
 }
 
 .bottomnavbar {
-  overflow: hidden;
+  overflow: auto;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -37,6 +37,7 @@ h3 {
   display: flex;
   background-color: #FF345B;
   justify-content: space-around;
+  z-index: 9999;
 }
 
 .bottomnavbar a {
@@ -44,6 +45,7 @@ h3 {
   text-decoration: none;
   font-size: 20px;
   padding: 7px 16px;
+  
 }
 
 .topnavbar {
@@ -57,6 +59,7 @@ h3 {
   justify-content: space-around;
   border-radius: 0 0 30px 30px;
   margin: 0 0 0 0;
+  z-index: 9999;
 }
 
 .topnavbar a {
@@ -76,9 +79,10 @@ h3 {
 }
 #welcome {
  text-align: center;
- margin-top: 70px;
+ margin-top: 90px;
  font-size: 50px;
 }
+
 
 #login {
   text-align: center;
@@ -210,7 +214,7 @@ font-weight: lighter;
 margin-top: 3px;
 }
 
-#morebtn{
+#updatebtn{
   background-color: #F82828;
   font-size: 13px;
   border: 3px solid #F82828;
@@ -219,7 +223,117 @@ margin-top: 3px;
   font-family: 'Ropa Sans', sans-serif;
   font-weight: bolder;
   letter-spacing: 0.5px;
-  margin-left: 150px;
+
+}
+
+#deletebtn{
+  background-color: #F82828;
+  font-size: 13px;
+  border: 3px solid #F82828;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Ropa Sans', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  margin-left: 10px;
+}
+
+#playlistbtns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#headerplaylist{
+  display: flex;
+  flex-direction: row;
+}
+#addplaylist{
+
+  margin-left: 160px;
+}
+
+#id_description{
+  font-size: 15px;
+  border: 0px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.8);
+}
+
+#addplaylistpage{ 
+  margin:  100px 40px;
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+  height: 280px
+}
+#submitplaylist{
+ margin: 20px 25%;
+ background-color: #FF345B;
+ font-family: 'Rajdhani', sans-serif;
+ font-size: 17px;
+ font-weight: bolder;
+}
+#newplaylist{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 24px;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+}
+
+#playlistform{
+  margin-top: 0px;
+
+}
+#playlistform input {
+  color: rgba(255,255,255,0.8);
+}
+
+#playlistdiv{
+  margin-bottom: 15px;
+}
+
+#songselse{
+  opacity: 0.7;
+  font-weight: lighter;
+  text-align: center;
+}
+#deleteconfirm{
+  font-size: 20px;
+  text-align: center;
+
+}
+#deletecancelbtns{  
+  text-align: center;
+}
+
+#canceldeletebtn{
+  background-color: #FF345B;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: bolder;
+  text-decoration: none;
+  width: 100px;
+  margin-left: 5px;
+}
+
+#submitdeletebtn{
+  background-color: #FF345B;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: bolder;
+  text-decoration: none;
+  width: 100px;
+  margin-right: 5px;
+}
+#deleteplaylistpage{
+  margin:  100px 40px;
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+  height: 220px
 }
 
 }
