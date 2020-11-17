@@ -18,8 +18,6 @@ class Playlist(models.Model):
     description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     songs = models.ManyToManyField(Song)
-
-    
     def __str__(self):
         return self.name
 
