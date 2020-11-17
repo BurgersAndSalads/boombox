@@ -78,8 +78,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'boomipy',
-        'USER': 'postgres',
-        'PASSWORD': 'open',
     }
 }
 
@@ -122,4 +120,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/landing'
+LOGOUT_REDIRECT_URL = '/'

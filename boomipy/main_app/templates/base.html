@@ -27,17 +27,25 @@
       </ul>
     </div> -->
 
+    {% if user.is_authenticated %}
     <div class="topnavbar">
       <a onclick="goBack()" >BACK</a>
       <a href="/landing">HOME</a>
-      <a href="/">LOGOUT</a>
+      <a href="{% url 'logout' %}">LOGOUT</a>
     </div> 
-    {% block content %}
-    {% endblock %}
     <div class="bottomnavbar">
       <a href="/top50">TOP 50</a>
       <a href="/myplaylist">MY PLAYLISTS</a>
     </div>
+    {% else %}
+    <div class="topnavbar">
+      <p> PLEASE LOG IN</p>
+    </div> 
+    {% endif %}
+  <main id="maininfo"> 
+    {% block content %}
+    {% endblock %}
+  </main>
     <script>
       function goBack() {
         window.history.back();

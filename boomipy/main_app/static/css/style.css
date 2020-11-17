@@ -148,6 +148,10 @@ font-size:15px;
 #signupform ul{
   visibility: hidden;
 }
+#signupform span{
+  visibility: hidden;
+}
+
 #signuppage h1{
   margin: 0px;
   font-size: 30px;
@@ -173,21 +177,29 @@ font-size:15px;
   width: 290px;
   padding: 1px 5px;
   border-radius: 15px;
-  height: 105px;
+  height: 110px;
   font-family: 'Ropa Sans', sans-serif;
 }
 
 .playlists p{
   font-size: 17px;
-  margin: 3px 0px 6px 8px ;
+  margin: 0px 0px 6px 8px ;
   font-weight: 600;
   color: black;
 }
 
+
 #playlistname{
   font-size: 30px;
-  margin: 12px 0px 6px 8px ;
+  margin: 0px 0px 0px 8px ;
   font-weight: 900;
+}
+
+#playlistsdescription {
+  font-size: 17px;
+  margin: 0px 0px 0px 8px ;
+  font-weight: 600;
+  color: black;
 }
 
 #numbersongs{
@@ -195,6 +207,7 @@ float:right;
 margin-right: 10px;
 font-size: 19px;
 font-weight: lighter;
+margin-top: 3px;
 }
 
 #morebtn{
@@ -208,4 +221,5 @@ font-weight: lighter;
   letter-spacing: 0.5px;
   margin-left: 150px;
 }
+
 }
