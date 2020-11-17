@@ -7,17 +7,15 @@
   <div id="line">
     <hr>
   </div>
-  <div class="row">
-    <div class="col s6">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">{{ playlist.name }}</span>
-          <p>Description: {{ playlist.description }}</p>
-          <p>Category: {{ playlist.songs }}</p>
-        </div>    
-      </div>
-    </div>
-  </div>
+<a href="#">
+<div id="playlistdiv" class="playlists">
+  <p id="playlistname">NAME:{{ playlist.name }}</p>
+  <p>Description: {{ playlist.description }}</p>
+  <a href="#"><button id="morebtn">MORE</button></a>
+  <p id="numbersongs"># songs</p>
+  <!-- <p>Category: {{ playlist.songs }}</p> -->
 </div>
+</a>
+
 
 {% endblock %}
