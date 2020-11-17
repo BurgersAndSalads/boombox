@@ -37,11 +37,29 @@ def signup(request):
 def myplaylist(request):
   # playlist = Playlist.objects.filter(user=request.user)
   playlist = Playlist.objects.all()
-  return render(request, '/playlist.html', {'playlist': playlist})
+  return render(request, 'myplaylist.html', {'playlist': playlist})
 
 def details(request, playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
-  return render(request, 'details.html', {'playlist': playlist})
+  return render(request, 'details.html', {'playlist': playlist, "id": playlist_id})
+
+# CRUD for playlist
+class PlaylistCreate(CreateView):
+  model = Playlist
+  fields = ['name', 'description']
+  success_url = '/myplaylist/'
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
+class PlaylistUpdate(UpdateView):
+  model = Playlist
+  fields = ['name', 'description', 'songs']
+
+class PlaylistDelete(DeleteView):
+  model = Playlist
+  success_url = '/myplaylist/'
 
 # dummy data
 songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
