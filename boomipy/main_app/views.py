@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Playlist, Song
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import ListView
+from .models import Playlist, Song
 
-# Create your views here.
 
 def signup(request):
   error_message = ''
@@ -34,18 +33,20 @@ def signup(request):
 # will be used for when we have the login installed
 # @login_required
 
+
 def myplaylist(request):
-    # playlist = Playlist.objects.filter(user=request.user)
-    playlist = Playlist.objects.all()
-    return render(request, '/playlist.html', {'playlist': playlist})
+  # playlist = Playlist.objects.filter(user=request.user)
+  playlist = Playlist.objects.all()
+  return render(request, '/playlist.html', {'playlist': playlist})
 
 def details(request, playlist_id):
-    playlist = Playlist.objects.get(id=playlist_id)
-    return render(request, 'details.html', {'playlist': playlist})
+  playlist = Playlist.objects.get(id=playlist_id)
+  return render(request, 'details.html', {'playlist': playlist})
 
+# dummy data
 songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
 def landing(request):
-    return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
+  return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
 
 def login(request):
-    return render(request, 'home.html')
+  return render(request, 'home.html')
