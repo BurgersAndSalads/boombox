@@ -27,10 +27,6 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-def home(request):
-    return render(request, 'base.html')
-
-
 # this class will be used when we have a functioning model 
 # class MyPlaylist(ListView):
 #     Playlist = Playlist.objects.filter(user=user)
@@ -52,4 +48,4 @@ def landing(request):
     return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'home.html')
