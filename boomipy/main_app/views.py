@@ -37,7 +37,7 @@ def signup(request):
 def myplaylist(request):
   # playlist = Playlist.objects.filter(user=request.user)
   playlist = Playlist.objects.all()
-  return render(request, '/playlist.html', {'playlist': playlist})
+  return render(request, 'myplaylist.html', {'playlist': playlist})
 
 def details(request, playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
