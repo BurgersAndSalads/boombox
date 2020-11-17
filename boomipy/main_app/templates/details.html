@@ -1,11 +1,24 @@
+
 {% block content %}
 
 <h1>{{ playlist.name }}</h1>
 <hr>
 <div>
-    <ul>
-    {{playlist.songs }}
-    </ul>
+    {% if playlist.songs.count %}
+    {% for song in playlist.songs.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            {{ song.name }} -
+            {{ song.artist }}
+          </span>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h5>No songs :(</h5>
+  {% endif %}
 </div>
-
+<a href="/myplaylist/{{ id }}/update">Update</a>
+<a href="/myplaylist/{{ id }}/delete">Delete</a>
 {% endblock %}
