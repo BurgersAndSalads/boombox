@@ -33,7 +33,7 @@ def signup(request):
 #     model = Playlist
 # will be used for when we have the login installed
 # @login_required
-# WATCH OUT YIREN! i DELETED A DUPLICATE FUNCTION
+
 def myplaylist(request):
     # playlist = Playlist.objects.filter(user=request.user)
     playlist = Playlist.objects.all()
