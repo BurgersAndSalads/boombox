@@ -46,7 +46,7 @@ def details(request, playlist_id):
 # dummy data
 songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
 def landing(request):
-  return render(request, 'landing.html', {'user': {'name':'yiren'}, 'songs': songlist})
+  return render(request, 'landing.html', {'username': {'name':'yiren'}, 'songs': songlist})
 
 def login(request):
   return render(request, 'home.html')
