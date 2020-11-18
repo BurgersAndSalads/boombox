@@ -2,22 +2,33 @@
 {% block content %}
 
 <div id="textstuff">
-    <h1>{{ username }}'s </h1>
-    <h3>LAST PLAYED SONGS</h3>
+    <div id="charttitle">
+        <h1 >{{ songchart.title}} </h1>
+    </div>
+    <div id="chartweek">
+        <p>FOR THE WEEK OF {{ songchart.date }}</p>
+    </div>
     <div id="line">
         <hr>
-    </div>
-    <div>
-        <ul>
-        {% for song in songs %}
-            <li>
-                {{ song.name }}
-                {% if song.link %}
-                    <a href="{{ song.link }}">Link</a>
+    </div> 
+    {% for song in songs %}
+    <div id="topsongdiv">
+        <div id="songinfo">
+            <p id="songrank">{{ song.rank}}.
+            {{ song.title }}</p>
+            <p id="songartist" >{{ song.artist }}</p>
+            <div id="tagsfortop">
+                <button id="weeksonchart" class=" btn-medium waves-effect waves-light">WEEKS ON CHART: {{song.weeks }}</button>
+                {% if song.isNew %}
+                <div id="isnewdiv">
+                    <button id="isnew" class=" btn-medium waves-effect waves-light">NEW ON CHART</button>
+                </div>
                 {% endif %}
-            </li>
-        {% endfor %}
-        </ul>
+              </div>
+           
+
+        </div>
     </div>
+     {% endfor %}
 </div>
 {% endblock %}
