@@ -22,4 +22,5 @@ urlpatterns = [
   path('myplaylist/song/create', views.SongCreate.as_view(), name='song_create'),
   path('myplaylist/<int:playlist_id>/add/<int:song_id>', views.SongAssociate, name='song_associate'),  
   path('myplaylist/<int:playlist_id>/remove/<int:song_id>', views.SongUnAssociate, name='song_unassociate'), 
+  path('myplaylist/<int:playlist_id>/<int:song_id>', views.youtube_video, name='youtube')
 ]
