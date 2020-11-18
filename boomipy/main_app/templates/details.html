@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
 {% block content %}
 
 <h1>{{ playlist.name }}</h1>
@@ -11,6 +11,8 @@
             <span class="card-title">
                 {{ song.name }} -
                 {{ song.artist }}
+                <a href="/myplaylist/{{ id }}/create">Add</a>
+                <a href="/myplaylist/{{ id }}/remove/{{ song_id }}">Delete</a>
             </span>
             </div>
         </div>
