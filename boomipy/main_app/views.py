@@ -106,6 +106,30 @@ def SongUnAssociate(request, playlist_id, song_id):
   return redirect(f'/myplaylist/{playlist_id}')
 
 @login_required
-def AvailableSongs(request):
+def AvailableSongs(request, playlist_id):
+  playlist = Playlist.objects.get(id=playlist_id)
   songs = Song.objects.all()
-  return render(request, 'available_songs.html', {'songs': songs} )
+  return render(request, 'available_songs.html', {'playlist': playlist, "id": playlist_id, 'songs': songs})
+
+@login_required
+def AddSongs(request):
+  # this function will take the song names and artist names from top 100
+  username = request.user
+  songchart = billboard.ChartData('hot-100')
+  songs = songchart.entries
+  songchart2 = billboard.ChartData('billboard-200')
+  songs2 = songchart2.entries
+
+  for song in songs:
+    namebillboard = song.title
+    artistbillboard = song.artist
+    s = Song(name = namebillboard, artist = artistbillboard)
+    s.save()
+  
+  for song in songs:
+    namebillboard2 = song.title
+    artistbillboard2 = song.artist
+    s = Song(name = namebillboard2, artist = artistbillboard2)
+    s.save()
+
+  return render(request, 'available_songs.html', {'name': username, 'songchart': songchart, 'songs': songs, 'songchart2': songchart2, 'songs2': songs2})
