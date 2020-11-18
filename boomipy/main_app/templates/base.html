@@ -39,7 +39,7 @@
     </div>
     {% else %}
     <div class="topnavbar">
-      <p> PLEASE LOG IN</p>
+      <p> PLEASE LOG IN OR SIGN UP</p>
     </div> 
     {% endif %}
   <main id="maininfo"> 
@@ -56,6 +56,12 @@
           hoverEnabled: false
         });
       });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const elems = document.querySelectorAll('.modal');
+        M.Modal.init(elems, {});
+      });
+    
     </script>
   </body>
 </html>
