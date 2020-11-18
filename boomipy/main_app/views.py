@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Playlist, Song
+from .forms import SongForm
 
 
 def signup(request):
@@ -37,6 +38,7 @@ def signup(request):
 def myplaylist(request):
   # playlist = Playlist.objects.filter(user=request.user)
   playlist = Playlist.objects.all()
+  username = request.user
   return render(request, 'myplaylist.html', {'playlist': playlist})
 
 def details(request, playlist_id):
@@ -61,10 +63,36 @@ class PlaylistDelete(DeleteView):
   model = Playlist
   success_url = '/myplaylist/'
 
-# dummy data
-songlist = [ {'name':'MORE', 'link': 'https://www.youtube.com/watch?v=3VTkBuxU4yk'}, {'name':'avengers', 'link':'https://www.youtube.com/watch?v=FOabQZHT4qY'}, {'name':'third song'}]
 def landing(request):
-  return render(request, 'landing.html', {'username': {'name':'yiren'}, 'songs': songlist})
+  username = request.user
+  playlist = Playlist.objects.all()
+  return render(request, 'landing.html', {'username': {'name': username}, 'songs': playlist})
 
 def login(request):
   return render(request, 'home.html')
+
+
+
+
+# def SongCreate(request, playlist_id):
+#   return render(request, 'main_app/song_form.html', {'playlist_id': playlist_id})
+
+def SongCreate(request, playlist_id):
+  template = 'main_app/song_form.html'
+  form = SongForm(request.POST or None)
+
+  if form.is_valid():
+    form.save()
+    return redirect(f'myplaylist/{playlist_id}')
+  
+  context = {"form": form}
+  return render(request, template, context)
+
+def SongAssociate(request, playlist_id, song_id):
+  Playlist.objects.get(id=playlist_id).songs.add(song_id)
+  return redirect(f'/myplaylist/{playlist_id}')
+
+class SongDelete(DeleteView):
+  model = Song
+  success_url = '/myplaylist/'
+

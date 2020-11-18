@@ -18,4 +18,8 @@ urlpatterns = [
   path('myplaylist/<int:pk>/delete', views.PlaylistDelete.as_view(), name='playlist_delete'),
   #  playlist details
   path('myplaylist/<int:playlist_id>', views.details, name='playlist_details'),
+  # Song CRUD for playlists
+  path('myplaylist/<int:playlist_id>/create', views.SongCreate, name='song_create'),
+  path('myplaylist/<int:playlist_id>/add/<int:song_id>', views.SongAssociate, name='song_associate'),
+  path('myplaylist/<int:playlist_id>/remove/<int:pk>', views.SongDelete.as_view(), name='song_delete'), 
 ]

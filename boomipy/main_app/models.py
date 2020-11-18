@@ -8,8 +8,12 @@ from django.urls import reverse
 class Song(models.Model):
     artist = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
+
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('myplaylist', kwargs={'id': self.id})
     
 
 #adding a redirect url for a successful playlist creation
@@ -18,6 +22,9 @@ class Playlist(models.Model):
     description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     songs = models.ManyToManyField(Song)
+
     def __str__(self):
         return self.name
 
+    # Many to Many relation songs to playlist
+    songs = models.ManyToManyField(Song)
