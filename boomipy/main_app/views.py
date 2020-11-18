@@ -39,7 +39,7 @@ def myplaylist(request):
   # playlist = Playlist.objects.filter(user=request.user)
   playlist = Playlist.objects.all()
   username = request.user
-  return render(request, 'myplaylist.html', {'playlist': playlist})
+  return render(request, 'myplaylist.html', {'playlist': playlist, 'username': username})
 
 def details(request, playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
@@ -66,7 +66,7 @@ class PlaylistDelete(DeleteView):
 def landing(request):
   username = request.user
   playlist = Playlist.objects.all()
-  return render(request, 'landing.html', {'username': {'name': username}, 'songs': playlist})
+  return render(request, 'landing.html', {'username': username, 'songs': playlist})
 
 def login(request):
   return render(request, 'home.html')
