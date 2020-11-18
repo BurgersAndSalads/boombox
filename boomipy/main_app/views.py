@@ -104,3 +104,8 @@ def SongAssociate(request, playlist_id, song_id):
 def SongUnAssociate(request, playlist_id, song_id):
   Playlist.objects.get(id=playlist_id).songs.remove(song_id)
   return redirect(f'/myplaylist/{playlist_id}')
+
+@login_required
+def AvailableSongs(request):
+  songs = Song.objects.all()
+  return render(request, 'available_songs.html', {'songs': songs} )
