@@ -54,7 +54,7 @@ class PlaylistCreate(LoginRequiredMixin, CreateView):
 
 class PlaylistUpdate(LoginRequiredMixin, UpdateView):
   model = Playlist
-  fields = ['name', 'description', 'songs']
+  fields = ['name', 'description']
 
 class PlaylistDelete(LoginRequiredMixin, DeleteView):
   model = Playlist
