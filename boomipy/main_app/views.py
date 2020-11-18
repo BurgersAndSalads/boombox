@@ -7,8 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Playlist, Song
 from .forms import SongForm
+from django.conf import settings
 import billboard
-
+import requests
 
 def signup(request):
   error_message = ''
@@ -41,6 +42,21 @@ def details(request, playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
   songs = Song.objects.all()
   return render(request, 'details.html', {'playlist': playlist, "id": playlist_id, 'songs': songs})
+
+def youtube_video(request, playlist_id, song_id):
+  search_url = "https://www.googleapis.com/youtube/v3/search"
+  song = Song.objects.get(id=song_id)
+  params = {
+    'part': 'snippet',
+    'q': f'{song.name} {song.artist}',
+    'key': settings.YOUTUBE_DATA_API_KEY
+  }
+
+  r = requests.get(search_url, params=params)
+  videoid = r.json()['items'][0]['id']['videoId']
+
+  # vid_id = r.items[0].id.videoId
+  return redirect(f'https://www.youtube.com/watch?v={videoid}')
 
 # CRUD for playlist
 class PlaylistCreate(LoginRequiredMixin, CreateView):
