@@ -3,6 +3,8 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Playlist, Song
 from .forms import SongForm
 
@@ -26,27 +28,21 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
-# this class will be used when we have a functioning model 
-# class MyPlaylist(ListView):
-#     Playlist = Playlist.objects.filter(user=user)
-#     model = Playlist
-# will be used for when we have the login installed
-# @login_required
-
-
+@login_required
 def myplaylist(request):
   # playlist = Playlist.objects.filter(user=request.user)
   playlist = Playlist.objects.all()
   username = request.user
   return render(request, 'myplaylist.html', {'playlist': playlist, 'username': username})
 
+@login_required
 def details(request, playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
-  return render(request, 'details.html', {'playlist': playlist, "id": playlist_id})
+  songs = Song.objects.all()
+  return render(request, 'details.html', {'playlist': playlist, "id": playlist_id, 'songs': songs})
 
 # CRUD for playlist
-class PlaylistCreate(CreateView):
+class PlaylistCreate(LoginRequiredMixin, CreateView):
   model = Playlist
   fields = ['name', 'description']
   success_url = '/myplaylist/'
@@ -55,14 +51,15 @@ class PlaylistCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class PlaylistUpdate(UpdateView):
+class PlaylistUpdate(LoginRequiredMixin, UpdateView):
   model = Playlist
   fields = ['name', 'description', 'songs']
 
-class PlaylistDelete(DeleteView):
+class PlaylistDelete(LoginRequiredMixin, DeleteView):
   model = Playlist
   success_url = '/myplaylist/'
 
+@login_required
 def landing(request):
   username = request.user
   playlist = Playlist.objects.all()
@@ -71,28 +68,20 @@ def landing(request):
 def login(request):
   return render(request, 'home.html')
 
+# add an item(song) to the database
+class SongCreate(LoginRequiredMixin, CreateView):
+  model = Song
+  fields = '__all__'
+  success_url = '/myplaylist/'
 
-
-
-# def SongCreate(request, playlist_id):
-#   return render(request, 'main_app/song_form.html', {'playlist_id': playlist_id})
-
-def SongCreate(request, playlist_id):
-  template = 'main_app/song_form.html'
-  form = SongForm(request.POST or None)
-
-  if form.is_valid():
-    form.save()
-    return redirect(f'myplaylist/{playlist_id}')
-  
-  context = {"form": form}
-  return render(request, template, context)
-
+# associate the song to a specific playlist
+@login_required
 def SongAssociate(request, playlist_id, song_id):
   Playlist.objects.get(id=playlist_id).songs.add(song_id)
   return redirect(f'/myplaylist/{playlist_id}')
 
-class SongDelete(DeleteView):
-  model = Song
-  success_url = '/myplaylist/'
-
+# unassociate the song to a specific playlist
+@login_required
+def SongUnAssociate(request, playlist_id, song_id):
+  Playlist.objects.get(id=playlist_id).songs.remove(song_id)
+  return redirect(f'/myplaylist/{playlist_id}')

@@ -9,10 +9,11 @@
   <form method="post" action="{% url 'signup' %}">
     {% csrf_token %}
     <div id="signupform">
-    {{ form.as_p }}
+      {{ form.as_p }}
     </div>
     <input type="submit" class="btn" value="signup">
   </form>
+  <button><a href="{% url 'login' %}">Login</a></button>
 </div>
 
 {% endblock %}
