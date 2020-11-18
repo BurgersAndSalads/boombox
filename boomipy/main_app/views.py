@@ -55,6 +55,7 @@ class PlaylistCreate(LoginRequiredMixin, CreateView):
 class PlaylistUpdate(LoginRequiredMixin, UpdateView):
   model = Playlist
   fields = ['name', 'description']
+  success_url = '/myplaylist/'
 
 class PlaylistDelete(LoginRequiredMixin, DeleteView):
   model = Playlist
