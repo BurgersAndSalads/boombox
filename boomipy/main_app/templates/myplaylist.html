@@ -2,21 +2,34 @@
 {% block content %}
 
 <div id="textstuff">
-  <h1>{{ username.name }}'s</h1>
-  <h3>PLAYLIST</h3>
+  <h1>{{ name.username }}'s</h1>
+  <div id="headerplaylist">
+    <h3>PLAYLIST</h3>
+    <a id="addplaylist" class="btn-floating btn-medium waves-effect waves-light red modal-trigger" href="create" ><i class="material-icons">add</i></a>
+  </div>
   <div id="line">
     <hr>
   </div>
-<a href="#">
-  <div id="playlistdiv" class="playlists">
-    <p id="playlistname">NAME:{{ playlist.name }}</p>
-    <p id="playlistdescription" >Description: {{ playlist.description }}</p>
- 
-    <a href="#"><button id="morebtn">MORE</button></a>
-    <p id="numbersongs"># songs</p>
-
-    <!-- <p>Category: {{ playlist.songs }}</p> -->
+  <div>
+  {% if playlist.count %}
+      {% for playlists in playlist %}
+      <a href="{{playlists.id}}">
+          <div id="playlistdiv" class="playlists">
+              <p id="playlistname">{{ playlists.name }}</p>
+              <p id="playlistdescription" >Description: {{ playlists.description }}</p>
+            <div id="playlistbtns">
+              <a href="/myplaylist/{{ playlists.id }}/update"><button id="updatebtn" class=" btn-medium waves-effect waves-light">UPDATE</button></a>
+              <a href="/myplaylist/{{ playlists.id }}/delete"><button id="deletebtn" class=" btn-medium waves-effect waves-light">DELETE</button></a>
+              <p id="numbersongs"># songs</p>
+            </div>
+          </div>
+      </a>
+      {% endfor %}
+      {% else %}
+      <div id="songselse">
+          <h5>NO PLAYLISTS CREATED</h5>
+      </div>
+    {% endif %}
   </div>
-</a>
 
 {% endblock %}
