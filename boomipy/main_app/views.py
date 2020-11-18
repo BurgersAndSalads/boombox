@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Playlist, Song
 from .forms import SongForm
+import billboard
 
 
 def signup(request):
@@ -65,8 +66,9 @@ class PlaylistDelete(DeleteView):
 
 def landing(request):
   username = request.user
-  playlist = Playlist.objects.all()
-  return render(request, 'landing.html', {'username': username, 'songs': playlist})
+  songchart = billboard.ChartData('hot-100')
+  songs = songchart.entries
+  return render(request, 'landing.html', {'name': username, 'songchart': songchart, 'songs': songs})
 
 def login(request):
   return render(request, 'home.html')
