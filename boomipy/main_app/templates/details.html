@@ -2,30 +2,50 @@
 {% block content %}
 
 <div id="textstuff">
-<h1>{{ playlist.name }}</h1>
-<div id="line">
-<hr>
-</div>
-<div>
-    {% if playlist.songs.count %}
-        {% for song in playlist.songs.all %}
-        <div class="card">
-            <div class="card-content">
-            <span class="card-title">
-                {{ song.name }} -
-                {{ song.artist }}
-                <a href="/myplaylist/{{ id }}/create">Add</a>
-                <a href="/myplaylist/{{ id }}/remove/{{ song_id }}">Delete</a>
-            </span>
-            </div>
-        </div>
-        {% endfor %}
-    {% else %}
-    <div id="songselse">
-        <h5>NO SONGS IN THIS PLAYLIST!</h5>
+    <h1>{{ playlist.name }}</h1>
+    <div id="line">
+    <hr>
     </div>
-    {% endif %}
+    <div class="col s6">
+        <h3>Available Songs</h3>
+        {% if songs.count %}
+            {% for song in songs %}
+            <div class="card">
+                {{ song.name }}
+                <div class="card-action">
+                    <form action="{% url 'song_associate' playlist.id song.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Add</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h5>No Available Songs To Add</h5>
+        {% endif %}
+    </div>
+    <div>
+        {% if playlist.songs.count %}
+            {% for song in playlist.songs.all %}
+            <div class="card">
+                <div class="card-content">
+                <span class="card-title">
+                    {{ song.name }} -
+                    {{ song.artist }}
+                    <form action="{% url 'song_unassociate' playlist.id song.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Remove</button>
+                    </form>
+                </span>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div id="songselse">
+            <h5>NO SONGS IN THIS PLAYLIST!</h5>
+        </div>
+        {% endif %}
+    </div>
 </div>
-</div>
-
 {% endblock %}
+
