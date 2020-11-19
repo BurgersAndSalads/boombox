@@ -6,8 +6,8 @@ from django.urls import reverse
 
 
 class Song(models.Model):
-    artist = models.CharField(max_length=200, unique=True)
-    name = models.CharField(max_length=200)
+    artist = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.name

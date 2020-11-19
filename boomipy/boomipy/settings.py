@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+# environment variable .env file
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n#-v!zoyk3s0wp4=-xwzo&(*a*2s+)ono^f*l8v+upqt&178e3'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,6 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': os.getenv("ENGINE"),
         'NAME': 'boomipy',
+        'USER': os.getenv("USER"),
+        'PASSWORD': os.getenv("PASSWORD"),
     }
 }
 
@@ -109,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -125,4 +128,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/landing'
 LOGOUT_REDIRECT_URL = '/'
-YOUTUBE_DATA_API_KEY = 'AIzaSyAAYpr8hyrXCGlByZ1HhXPibbUyIY72eNc'
+YOUTUBE_DATA_API_KEY = os.getenv("YOUTUBE_DATA_API_KEY")
