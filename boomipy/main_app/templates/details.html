@@ -14,7 +14,7 @@
 </div>
         {% if playlist.songs.count %}
             {% for song in playlist.songs.all %}
-            <a href="{{playlist.id}}/{{song.id}}">
+            <a href="{{playlist.id}}/{{song.id}}" target="_blank">
                 <div id="playlistsongdiv" class="playlists">
                     <p id="songname2"> {{ song.name }} </p>
                     <div id="boxx">
