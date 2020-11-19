@@ -20,7 +20,7 @@
                     <div id="boxx">
                         <p id="songartist2">{{ song.artist }}</p>
                         <form  action="{% url 'song_unassociate' playlist.id song.id %}" method="post">
-                        {% csrf_token %}
+                            {% csrf_token %}
                             <button id="removesongbutton" type="submit" class="btn-medium">Remove</button>
                         </form>
                     </div>  
