@@ -15,22 +15,22 @@
 <h3>  Screenshots </h3>
 
 <h4> When a user first visits our app they will see a login screen</h4>
-<img href="https://i.imgur.com/dWoJ0Ax.png">
+<img src="https://i.imgur.com/dWoJ0Ax.png">
 
 <h4> After a user login, this will be their landing page</h4>
-<img href="https://i.imgur.com/SArG7ha.png">
+<img src="https://i.imgur.com/SArG7ha.png">
 
 <h4> when a user wants to see all their playlists/collection</h4>
-<img href="https://i.imgur.com/kB6HAGj.png">
+<img src="https://i.imgur.com/kB6HAGj.png">
 
 <h4> A user can choose from a list of songs from our database to add to their playlist</h4>
-<img href="https://i.imgur.com/nTf9Tqp.png">
+<img src="https://i.imgur.com/nTf9Tqp.png">
 
 <h4> confirmation page when user decides to delete a playlist</h4>
-<img href="https://i.imgur.com/AnbMbu3.png">
+<img src="https://i.imgur.com/AnbMbu3.png">
 
 <h4> confirmation page when user decides to make a new playlist</h4>
-<img href="https://i.imgur.com/SRfXPMy.png">
+<img src="https://i.imgur.com/SRfXPMy.png">
 
 <h3>  Technologies </h3>
 
