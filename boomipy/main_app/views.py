@@ -100,7 +100,7 @@ def SongAssociate(request, playlist_id, song_id):
   return redirect(f'/myplaylist/{playlist_id}')
 
 # unassociate the song to a specific playlist
-@login_required
+@login_required 
 def SongUnAssociate(request, playlist_id, song_id):
   Playlist.objects.get(id=playlist_id).songs.remove(song_id)
   return redirect(f'/myplaylist/{playlist_id}')

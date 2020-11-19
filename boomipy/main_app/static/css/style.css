@@ -299,6 +299,7 @@
     opacity: 0.7;
     font-weight: lighter;
     text-align: center;
+    z-index: 9990;
   }
   #deleteconfirm{
     font-size: 20px;
@@ -409,5 +410,112 @@
     letter-spacing: 0.5px;
     
   }
-  
+
+  #addsongbutton{
+    position: fixed;
+    right: 13px;
+    z-index: 9999;
   }
+
+  #addsongstitle h3{
+    margin-top: 55px;
+    font-size: 35px;
+  }
+  
+ #addtoplaylistbutton{
+    background-color: #f86868;
+    font-size: 13px;
+    border: 3px solid #f86868;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    position: inherit;
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-right: 10px;
+    padding: 3px 10px;
+ }
+
+ #availablesongdiv{
+  background-color: rgba(0, 0 , 0, 0.6);
+  width: auto;
+  margin-right: 10px;
+  border-radius: 15px;
+  height: auto;
+  font-family: 'Ropa Sans', sans-serif;
+  color: white;
+  margin-bottom: 10px;
+  padding: 1px 3px 3px 15px;
+  margin-bottom: 10px;
+}
+#songinfo{
+  display: flex;
+  flex-direction: row;
+}
+
+#songartist2{
+  margin-left: 3px;
+  font-size: 15px;
+  margin-top: 0;
+}
+#songname2{
+font-size: 25px;
+margin-bottom: 0;
+margin-top: 3px;
+padding-bottom: 0px;
+}
+
+
+
+#removesongbutton {
+  background-color: #f86868;
+  font-size: 13px;
+  border: 3px solid #f86868;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Ropa Sans', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  position: inherit;
+  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 10px;
+  padding: 3px 10px;
+}
+
+#playlistsongdiv{
+  background-color: white;
+  width: auto;
+  padding: 0px 5px;
+  margin-right: 10px;
+  border-radius: 15px;
+  height: auto;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-left:10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+}
+
+#boxx{
+  display: flex;
+  flex-direction: row;
+}
+#addnewsongbuttonform{
+  background-color: #f86868;
+  font-size: 13px;
+  border: 3px solid #f86868;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Ropa Sans', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  position: inherit;
+  margin-left: 70px;
+
+
+  padding: 3px 10px;
+}
+
+}

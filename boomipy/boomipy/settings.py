@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,7 +79,7 @@ WSGI_APPLICATION = 'boomipy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': os.getenv("ENGINE"),
         'NAME': 'boomipy',
     }
 }
@@ -122,4 +125,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/landing'
 LOGOUT_REDIRECT_URL = '/'
-YOUTUBE_DATA_API_KEY = #API KEY HERE
+YOUTUBE_DATA_API_KEY = 'AIzaSyAAYpr8hyrXCGlByZ1HhXPibbUyIY72eNc'
